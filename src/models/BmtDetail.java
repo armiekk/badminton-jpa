@@ -5,31 +5,32 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the badminton_detail database table.
+ * The persistent class for the bmt_detail database table.
  * 
  */
 @Entity
-@Table(name="badminton_detail")
-@NamedQuery(name="BadmintonDetail.findAll", query="SELECT b FROM BadmintonDetail b")
-public class BadmintonDetail  {
+@Table(name="bmt_detail")
+@NamedQuery(name="BmtDetail.findAll", query="SELECT b FROM BmtDetail b")
+public class BmtDetail  {
 	private static final long serialVersionUID = 1L;
-	private BadmintonDetailPK id;
+	private BmtDetailPK id;
 	private int detailScrFoeman;
 	private int detailScrUs;
+	private int detailSet;
 	private double detailTime;
-	private BadmintonEvent badmintonEvent;
-	private BadmintonMatch badmintonMatch;
+	private BmtEvent bmtEvent;
+	private BmtMatch bmtMatch;
 
-	public BadmintonDetail() {
+	public BmtDetail() {
 	}
 
 
 	@EmbeddedId
-	public BadmintonDetailPK getId() {
+	public BmtDetailPK getId() {
 		return this.id;
 	}
 
-	public void setId(BadmintonDetailPK id) {
+	public void setId(BmtDetailPK id) {
 		this.id = id;
 	}
 
@@ -54,6 +55,16 @@ public class BadmintonDetail  {
 	}
 
 
+	@Column(name="detail_set")
+	public int getDetailSet() {
+		return this.detailSet;
+	}
+
+	public void setDetailSet(int detailSet) {
+		this.detailSet = detailSet;
+	}
+
+
 	@Column(name="detail_time")
 	public double getDetailTime() {
 		return this.detailTime;
@@ -64,27 +75,27 @@ public class BadmintonDetail  {
 	}
 
 
-	//bi-directional many-to-one association to BadmintonEvent
+	//bi-directional many-to-one association to BmtEvent
 	@ManyToOne
 	@JoinColumn(name="event_id")
-	public BadmintonEvent getBadmintonEvent() {
-		return this.badmintonEvent;
+	public BmtEvent getBmtEvent() {
+		return this.bmtEvent;
 	}
 
-	public void setBadmintonEvent(BadmintonEvent badmintonEvent) {
-		this.badmintonEvent = badmintonEvent;
+	public void setBmtEvent(BmtEvent bmtEvent) {
+		this.bmtEvent = bmtEvent;
 	}
 
 
-	//bi-directional many-to-one association to BadmintonMatch
+	//bi-directional many-to-one association to BmtMatch
 	@ManyToOne
 	@JoinColumn(name="match_id")
-	public BadmintonMatch getBadmintonMatch() {
-		return this.badmintonMatch;
+	public BmtMatch getBmtMatch() {
+		return this.bmtMatch;
 	}
 
-	public void setBadmintonMatch(BadmintonMatch badmintonMatch) {
-		this.badmintonMatch = badmintonMatch;
+	public void setBmtMatch(BmtMatch bmtMatch) {
+		this.bmtMatch = bmtMatch;
 	}
 
 }

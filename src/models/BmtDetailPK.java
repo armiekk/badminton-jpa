@@ -4,17 +4,17 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * The primary key class for the badminton_detail database table.
+ * The primary key class for the bmt_detail database table.
  * 
  */
 @Embeddable
-public class BadmintonDetailPK implements Serializable {
+public class BmtDetailPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 	private int matchId;
 	private int detailRunnum;
 
-	public BadmintonDetailPK() {
+	public BmtDetailPK() {
 	}
 
 	@Column(name="match_id", insertable=false, updatable=false)
@@ -37,10 +37,10 @@ public class BadmintonDetailPK implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof BadmintonDetailPK)) {
+		if (!(other instanceof BmtDetailPK)) {
 			return false;
 		}
-		BadmintonDetailPK castOther = (BadmintonDetailPK)other;
+		BmtDetailPK castOther = (BmtDetailPK)other;
 		return 
 			(this.matchId == castOther.matchId)
 			&& (this.detailRunnum == castOther.detailRunnum);

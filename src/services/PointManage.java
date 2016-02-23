@@ -4,26 +4,26 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import models.BadmintonDetail;
-import models.BadmintonEvent;
-import models.BadmintonMatch;
+import models.BmtDetail;
+import models.BmtEvent;
+import models.BmtMatch;
 
 public class PointManage {
 	
-	public void addWinPoint(BadmintonDetail dt){
+	public void addWinPoint(BmtDetail dt){
 		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "BadmintonJPA" );
 	      
 	    EntityManager entitymanager = emfactory.createEntityManager( );
 	    entitymanager.getTransaction().begin();
-	    BadmintonMatch match = entitymanager.find(BadmintonMatch.class, 1);
-	    BadmintonEvent event = entitymanager.find(BadmintonEvent.class, 1);
-	    BadmintonDetail detail = new BadmintonDetail();
+	    BmtMatch match = entitymanager.find(BmtMatch.class, 1);
+	    BmtEvent event = entitymanager.find(BmtEvent.class, 1);
+	    BmtDetail detail = new BmtDetail();
 	    
 	    detail.setDetailScrFoeman(0);
 	    detail.setDetailScrUs(1);
 	    detail.setDetailTime(dt.getDetailTime());
-	    detail.setBadmintonMatch(match);
-	    detail.setBadmintonEvent(event);
+	    detail.setBmtMatch(match);
+	    detail.setBmtEvent(event);
 	    
 	    entitymanager.persist(detail);
 	    entitymanager.getTransaction().commit();
@@ -33,20 +33,20 @@ public class PointManage {
 
 	}
 	
-	public void addLostPoint(BadmintonDetail dt){
+	public void addLostPoint(BmtDetail dt){
 		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "BadmintonJPA" );
 	      
 	    EntityManager entitymanager = emfactory.createEntityManager( );
 	    entitymanager.getTransaction().begin();
-	    BadmintonMatch match = entitymanager.find(BadmintonMatch.class, 1);
-	    BadmintonEvent event = entitymanager.find(BadmintonEvent.class, 2);
-	    BadmintonDetail detail = new BadmintonDetail();
+	    BmtMatch match = entitymanager.find(BmtMatch.class, 1);
+	    BmtEvent event = entitymanager.find(BmtEvent.class, 2);
+	    BmtDetail detail = new BmtDetail();
 	    
 	    detail.setDetailScrFoeman(1);
 	    detail.setDetailScrUs(0);
 	    detail.setDetailTime(dt.getDetailTime());
-	    detail.setBadmintonMatch(match);
-	    detail.setBadmintonEvent(event);
+	    detail.setBmtMatch(match);
+	    detail.setBmtEvent(event);
 	    
 	    entitymanager.persist(detail);
 	    entitymanager.getTransaction().commit();

@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import models.BadmintonMatch;
+import models.BmtMatch;
 
 public class Test {
 
@@ -14,7 +14,7 @@ public class Test {
 	      EntityManager entitymanager = emfactory.createEntityManager( );
 	      entitymanager.getTransaction( ).begin( );
 
-	      BadmintonMatch match = new BadmintonMatch( ); 
+	      BmtMatch match = new BmtMatch( ); 
 	      
 	      match.setMatchName("Arm Kengpohnsakul");
 	      match.setMatchHcolR(0);
